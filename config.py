@@ -20,7 +20,7 @@ AGENT_ENDPOINTS = {
 
 AGENT_MODES = {
     "code": ["Debug", "Refactor", "Review", "Generate"],
-    "research": ["Deep Dive", "PDF", "Benchmarks", "Math"],
+    "research": ["research", "math"],
     "data": ["Diagnose", "Cohort", "Conversion", "Health"],
     "growth": ["GTM", "Funnel", "Competitor", "Roadmap"],
     "strategy": ["Executive", "Market", "Risk", "Ops"],
