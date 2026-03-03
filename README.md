@@ -17,7 +17,14 @@ Run this on Windows:
 
 ```bash
 pip install -r requirements.txt pyinstaller
-pyinstaller --noconfirm --onefile --windowed --name stremini main.py
+pyinstaller --noconfirm --onefile --windowed --name stremini --add-data "styles.qss;." main.py
 ```
 
 The executable will be generated in `dist/stremini.exe`.
+
+
+If you add an `assets/` folder, include it as well:
+
+```bash
+pyinstaller --noconfirm --onefile --windowed --name stremini --add-data "styles.qss;." --add-data "assets;assets" main.py
+```
