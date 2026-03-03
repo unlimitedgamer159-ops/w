@@ -35,6 +35,11 @@ PARSERS = {
 }
 
 
+def resource_path(*parts: str) -> str:
+    base_path = getattr(sys, "_MEIPASS", os.path.abspath("."))
+    return os.path.join(base_path, *parts)
+
+
 class Worker(QThread):
     completed = pyqtSignal(str)
     failed = pyqtSignal(str)
@@ -148,14 +153,14 @@ class StreminiWindow(QMainWindow):
 
 def load_fonts() -> None:
     for filename in ("DMSans-Regular.ttf", "Lora-Regular.ttf"):
-        path = os.path.join("assets", "fonts", filename)
+        path = resource_path("assets", "fonts", filename)
         if os.path.exists(path):
             QFontDatabase.addApplicationFont(path)
 
 
 def main() -> int:
     app = QApplication(sys.argv)
-    with open("styles.qss", "r", encoding="utf-8") as fh:
+    with open(resource_path("styles.qss"), "r", encoding="utf-8") as fh:
         app.setStyleSheet(fh.read())
     load_fonts()
     window = StreminiWindow()
