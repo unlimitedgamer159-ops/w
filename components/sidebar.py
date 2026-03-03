@@ -52,3 +52,4 @@ class Sidebar(QFrame):
         self._active_agent = agent
         self._render_modes(agent)
         self.agent_changed.emit(agent)
+        self.mode_changed.emit(AGENT_MODES[agent][0])
